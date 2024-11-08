@@ -7,7 +7,7 @@ O objetivo desta atividade é implementar uma turma que receba um número espec�
 ### Descrição
 
 - **Aluno**
-  - O aluno possui um nome, uma matrícula e um vetor de notas.
+  - O aluno possui um nome, uma matrícula e um vetor de notas com duas posições.
   - Ao criar um aluno, são passados para o construtor o nome e a matrícula.
   - Os métodos da classe `Aluno` serão:
     - `getNome`: retorna o nome do aluno.
@@ -28,7 +28,7 @@ O objetivo desta atividade é implementar uma turma que receba um número espec�
 
 ## Guia
 
-![_](diagrama.png)
+![_](diagrama.svg)
 
 ### Parte 1: Aluno
 
