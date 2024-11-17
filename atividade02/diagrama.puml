@@ -1,0 +1,27 @@
+@startuml
+skinparam dpi 150
+class Livro {
+    - titulo : String
+    - autor : String
+    - alugado : boolean
+    + Livro(titulo : String, autor : String)
+    + getTitulo() : String
+    + getAutor() : String
+    + isAlugado() : boolean
+    + setAlugado(alugado : boolean) : void
+}
+
+class Aluno {
+    - nome : String
+    - livrosAlugados : ArrayList<Livro>
+    + Aluno(nome : String)
+    + getNome() : String
+    + alugarLivro(livro : Livro) : void
+    + devolverLivro(livro : Livro) : void
+}
+
+
+
+Aluno "1" *-- "0..*" Livro : aluga
+
+@enduml
