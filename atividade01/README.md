@@ -28,7 +28,7 @@ O objetivo desta atividade é implementar uma turma que receba um número espec�
 
 ## Guia
 
-![_](diagrama.svg)
+![_](image.png)
 
 ### Parte 1: Aluno
 
