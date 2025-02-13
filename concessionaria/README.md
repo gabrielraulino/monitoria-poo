@@ -10,10 +10,95 @@
 O sistema de gerenciamento de concessionária é responsável por gerenciar a venda de veículos, registrando os gerentes, vendedores e veículos disponíveis, além de calcular a comissão dos vendedores e gerentes.
 
 - Você deve utilizar herança para construir um sistema para gerenciar uma concessionária de veículos, incluindo carros, motos e caminhões.
-- A classe `Veiculo` é uma classe abstrata que possui os atributos `id`, `marca`, `modelo`, `ano`, `valor` e `disponivel`.
-- A classe `Veiculo` possui um método `toString()` que deve ser implementado pelas classes filhas.
+
+### classe `Veiculo`
+
+- **Atributos**:
+  - static `int` totalVeiculos que servirá para incrementar o id de veículos
+  - `int` id
+  - `String` marca
+  - `String` modelo
+  - `int` ano
+  - `double` valor
+  - `boolean` disponivel
+- **Métodos**
+  - construtor que recebe `marca`, `modelo`,`ano`, `valor`
+    O `id` recebe o valor de `totalVeiculos`, `disponivel` recebe `true` e `totalVeiculos` é incrementado
+  - get para todos os atributos `id`, `marca`, `modelo`,`ano`, `valor`, `disponivel`
+
+### Classe `Moto`
+
+- **Atributos**:
+  - `int` cilindradas
+- **Métodos**:
+  - Construtor recebendo `cilindradas`
+  - String `toString()` retorna uma String na seguinte formatação `Moto[{marca}, {modelo}, {ano}, R${valor}, {cilindradas}cc]`
+
+### Classe`Carro`
+
+- **Atributos**:
+  - `String` categoria
+- **Métodos**:
+  - Construtor recebendo `categoria`
+  - `String` toString() retorna uma String na seguinte formatação `Carro[{marca}, {modelo}, {ano}, R${valor}, {categoria}]`
+
+### Classe `Caminhao`
+
+- **Atributos**:
+  - `int` pesoBrutoTotal
+- **Métodos**:
+- Construtor recebendo `pesoBrutoTotal`
+  - String `toString()` retorna uma String na seguinte formatação `Caminhao[{marca}, {modelo}, {ano}, R${valor}, {pesoBrutoTotal}kg]`
+
+### Classe `Vendedor`
+
 - A classe `Vendedor` é responsável por realizar vendas de veículos e calcular a comissão.
+- **Atributos**:
+  - static `int` totalVendedores totalVendedores que servirá para incrementar o `id`
+  - `String` nome
+  - `ArrayList<Veiculo>` vendas
+- **Métodos**:
+  - Construtor recebendo `nome`
+    `id` receberá o valor de `totalVendedores`, incrementar `totalVendedores` e inicializar `vendas`
+  - get para `id`, `nome` e `vendas`
+  - método `comissao()` que retorna um `double` com a soma de 10% dos valores dos veículos do ArrayList `vendas`
+  - método `realizaVenda(Veiculo veiculo)`
+    Recebe um veículo, verifica se está disponível, caso sim, adiciona em `vendas` e modifica o atributo `disponivel` de veiculo para `false`
+  - método `toString()` formata as informções do vendedor da seguinte forma:
+
+  Vendedor nome=`{nome}`, id=`{id}`, Comissao=`{comissao}` <br>
+  vendas:<br>
+  Caminhao[scania, r440, 2020, R$600000.0, 44000Kg]<br>
+
+### Classe `Gerente`
+
 - A classe `Gerente` herda de `Vendedor` e possui vendedores subordinados.
+
+- **Atributos**:
+  - `ArrayList<Vendedor>` subordinados
+
+-**Métodos**:
+
+- Construtor recebe `nome` e inicializa a lista `subordinados`
+- `addVendedor(Vendedor vendedor)` recebe um vendedor e insere na lista `subordinados`
+- `getSubordinados()` retorna a lista de vendedores `subordinados`
+- `toString()` sobrescrita do método, adicionando os nomes de seus subordinados
+
+### Classe `Concessionaria`
+
+- **Atributos**:
+  - `ArrayList<Gerente>` gerentes armazena os gerentes
+  - `ArrayList<Veiculo>` veiculos armazena os veiculos
+- **Método**:
+  - Construtor padrão que inicializa as listas `gerentes` e `vendedores`
+  - `addGerente(Gerente gerente)` recebe um gerente e adiciona em `gerentes`
+  - `addVeiculo(Veiculo Veiculo)` recebe um veiculo e adiciona em `veiculos`
+  - `addVendedor(int index, Vendedor vendedor)` recebe o índice do gerente e um vendedor, adiciona o vendedor em `subordinados`
+  - `realizaVenda(int index_gerente, int index_veiculo)` recebe o índice do gerente e um veículo, adicona o veículo na lista de `vendas` do gerente chamando o método `realizaVenda(Veiculo)`
+  - `realizaVenda(int index_gerente, int index_vendedor, Veiculo veiculo)` recebe o índice do gerente e o índice do vendedor, adiciona veículo em `vendas` com o método `realizaVenda(Veiculo)` de `vendedor`
+  - `showGerentes()` imprime as informações(toString()) de todos os gerentes
+  - `showVeiculo()` imprime as informações(toString()) de todos os veiculos que estão disponíveis
+  - `showVendedores(int index)` imprime todos os vendedores de um `gerente`
 
 ### Responsabilidades
 
