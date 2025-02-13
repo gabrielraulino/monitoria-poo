@@ -23,8 +23,9 @@ O sistema de gerenciamento de concessionária é responsável por gerenciar a ve
   - `boolean` disponivel
 - **Métodos**
   - construtor que recebe `marca`, `modelo`,`ano`, `valor`
+  
     O `id` recebe o valor de `totalVeiculos`, `disponivel` recebe `true` e `totalVeiculos` é incrementado
-  - get para todos os atributos `id`, `marca`, `modelo`,`ano`, `valor`, `disponivel`
+  - `get()` para os atributos `id`, `marca`, `modelo`,`ano`, `valor`, `disponivel`
 
 ### Classe `Moto`
 
@@ -60,7 +61,7 @@ O sistema de gerenciamento de concessionária é responsável por gerenciar a ve
 - **Métodos**:
   - Construtor recebendo `nome`
     `id` receberá o valor de `totalVendedores`, incrementar `totalVendedores` e inicializar `vendas`
-  - get para `id`, `nome` e `vendas`
+  - `get()` para `id`, `nome` e `vendas`
   - método `comissao()` que retorna um `double` com a soma de 10% dos valores dos veículos do ArrayList `vendas`
   - método `realizaVenda(Veiculo veiculo)`
     Recebe um veículo, verifica se está disponível, caso sim, adiciona em `vendas` e modifica o atributo `disponivel` de veiculo para `false`
@@ -77,7 +78,7 @@ O sistema de gerenciamento de concessionária é responsável por gerenciar a ve
 - **Atributos**:
   - `ArrayList<Vendedor>` subordinados
 
--**Métodos**:
+- **Métodos**:
 
 - Construtor recebe `nome` e inicializa a lista `subordinados`
 - `addVendedor(Vendedor vendedor)` recebe um vendedor e insere na lista `subordinados`
@@ -89,7 +90,7 @@ O sistema de gerenciamento de concessionária é responsável por gerenciar a ve
 - **Atributos**:
   - `ArrayList<Gerente>` gerentes armazena os gerentes
   - `ArrayList<Veiculo>` veiculos armazena os veiculos
-- **Método**:
+- **Métodos**:
   - Construtor padrão que inicializa as listas `gerentes` e `vendedores`
   - `addGerente(Gerente gerente)` recebe um gerente e adiciona em `gerentes`
   - `addVeiculo(Veiculo Veiculo)` recebe um veiculo e adiciona em `veiculos`
