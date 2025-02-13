@@ -1,0 +1,89 @@
+@startuml Gerenciando_Veiculos
+
+skinparam dpi 150
+class Gerente{
+  -subordinados: ArrayList<Vendedor>
+  --
+  +Gerente(nome: String)
+  +addVendedor(vendedor: Vendedor):void
+  +getSubordinados(): ArrayList
+}
+class Vendedor {
+  -{static} totalVendedores: int
+  -id: int
+  -nome: String
+  -vendas: ArrayList<Veiculo>
+  --
+  +Vendedor(nome: String)
+  +getId():int
+  +getNome():String
+  +comissao():double
+  +getVendas():ArrayList
+  +realizaVenda(veiculo: Veiculo) void
+  +toString(): String
+}
+
+
+abstract class Veiculo {
+  -{static} totalVeiculos : int
+  -id:int
+  -marca: str
+  -modelo: str
+  -ano: int
+  -valor: double
+  -disponivel: bool
+  --
+  +Veiculo(marca: String, modelo: String, ano: int, valor: double)
+  +getId():int
+  +getMarca():String
+  +getModelo():String
+  +getValor(): double
+  +getAno(): int
+  +isDisponivel():boolean
+  +setDisponivel(disponivel: boolean):void
+}
+
+class Moto{
+  -cilindradas: int
+  --
+  +Moto(cilindradas: int)
+  +toString():String
+}
+
+class Carro{
+  -categoria: String
+  --
+  +Carro(categoria: String)
+  +toString():String
+}
+class Caminhao{
+  -PesoBrutoTotal: int
+  --
+  +Caminhao(PBT: int)
+  +toString():String
+}
+
+class Concessionaria{
+  -gerentes: ArrayList<Gerente>
+  -veiculos: ArrayList<Veiculo>
+  --
+  +Concessionaria()
+  +Folha(): double
+  +addGerente(gerente : Gerente) :void
+  +addVeiculo(vendedor : Veiculo) :void
+  +addVendedor(index: int, vendedor: Vendedor) :void
+  +realizaVenda(index_gerente: int, index_veiculo :int ) :void
+  +realizaVenda(index_gerente: int, index_vendedor: int, index_veiculo : int): void
+  +showGerentes():void
+  +showVendedores(index_gerente: int):void
+  +showVeiculos():void
+}
+Vendedor <|-- Gerente
+Vendedor "1" o-- "*" Veiculo
+Gerente "1" o-- "*" Vendedor
+Veiculo <|-- Moto
+Veiculo <|-- Carro
+Veiculo <|-- Caminhao
+Concessionaria "1" o-- "*" Gerente
+Concessionaria "1" o-- "*" Veiculo
+
